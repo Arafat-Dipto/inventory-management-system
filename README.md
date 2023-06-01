@@ -1,64 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## API DOCUMENTATION
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Auth login :  POST (http://127.0.0.1:8000/api/auth/login)   ||  Request Body {"email": "admin@gmail.com, "password" : "admin123"}
+ 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ // After login
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+	1. Profile : GET (http://127.0.0.1:8000/api/me)
+	2. Logout : GET (http://127.0.0.1:8000/api/logout)
 
-## Learning Laravel
+	//categories
+	3.Get all categories : GET (http://127.0.0.1:8000/api/categories)
+	4. Store category : POST (http://127.0.0.1:8000/api/categories)    ||  Request Body { "name" : "category1", "status" : 1 }
+	5. Category Get by ID : GET (http://127.0.0.1:8000/api/categories/{id}/edit)
+	6. Update category : PUT (http://127.0.0.1:8000/api/categories/{id})  ||  Request Body { "name" : "category1", "status" : 1 }
+	7. Delete category : DELETE (http://127.0.0.1:8000/api/categories/{id})
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+	//products
+	8.Get all products : GET (http://127.0.0.1:8000/api/products)
+	9. Store Product : POST (http://127.0.0.1:8000/api/products)  ||  Request Body { "code" : "pr001", "category" : 1, "name" : "category1", "stock_qty": 15, "price" : 150, "status" : 1 }
+	10. Product Get by ID : GET (http://127.0.0.1:8000/api/products/{id}/edit)
+	11. Update Product : PUT (http://127.0.0.1:8000/api/products/{id})  ||  Request Body { "code" : "pr001", "category" : 1, "name" : "category1", "stock_qty": 15, "price" : 150, "status" : 1 }
+	12. Delete Product : DELETE (http://127.0.0.1:8000/api/products/{id})
+	
+	//suppliers
+	13.Get all suppliers : GET (http://127.0.0.1:8000/api/suppliers)
+	14. Store Supplier : POST (http://127.0.0.1:8000/api/suppliers)  ||  Request Body { "name" : "ABCD", "phone" : "01XXXXXXXXX", "address" : "Dhaka" }
+	15. Supplier Get by ID : GET (http://127.0.0.1:8000/api/suppliers/{id}/edit)
+	16. Update Supplier : PUT (http://127.0.0.1:8000/api/suppliers/{id})  ||  Request Body { "name" : "ABCD", "phone" : "01XXXXXXXXX", "address" : "Dhaka" }
+	17. Delete Supplier : DELETE (http://127.0.0.1:8000/api/suppliers/{id})
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+	//purchase list
+	13.Get all purchases : GET (http://127.0.0.1:8000/api/purchases)
+	14. Store Purchase : POST (http://127.0.0.1:8000/api/purchases)  ||  Request Body { "invoice_no" : "INVC0123456789", "supplier" : 2, "purchase_date": "2023-05-10 13:00:00", "note" : "this is a note", 
+	"productsRow" : [ { "product_id": 4, "product_name" : "Headphone", product_price: "1200.00" , "product_qty" : 1, "product_stock" : 2, "product_total": "1200.00"}] }
+	15. Purchase Get by ID : GET (http://127.0.0.1:8000/api/purchases/{id}/edit)
+	16. Update Purchase : PUT (http://127.0.0.1:8000/api/purchases/{id})
+	17. Delete Purchase : DELETE (http://127.0.0.1:8000/api/purchases/{id})
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+	
+	

@@ -27,7 +27,7 @@ class ProductController extends Controller
 
         $data =  Product::orderBy('created_at', 'DESC')
                     ->filter(Request::only('search'))
-                    ->paginate(2)
+                    ->paginate(10)
                     ->through(function ($item, $index) {
                         return [
                             'id'        => $item->id,

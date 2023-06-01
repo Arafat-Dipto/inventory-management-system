@@ -41,28 +41,26 @@
     
  ## ARCHETECTURE DIAGRAM
  
-                    +----------------+
-                    |   Web Browser  |
-                    +----------------+
+               +------------------------+
+               |      Web Browser       |
+               +------------------------+
                            | HTTP Requests
                            |
                            v
               +------------------------+
-              |       Load Balancer    |
+              |    React Web App        |
               +------------------------+
                            |
-                           | Load Balanced Requests
+                           | API Requests
                            v
               +------------------------+
-              |   Web Server (Apache)  |
+              |       API Gateway       |
               +------------------------+
                            |
-                           | Reverse Proxy
+                           | Routes Requests
                            v
               +------------------------+
-              |      Application       |
-              |        Server          |
-              |    (Laravel PHP)       |
+              |    Laravel API Server   |
               +------------------------+
                            |
                            | Communicates with:
@@ -72,7 +70,6 @@
               |       (MySQL)          |
               |                        |
               +------------------------+
-
 
 	
 	

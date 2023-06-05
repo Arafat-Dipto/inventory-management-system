@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\PurchaseController;
 use App\Http\Controllers\Api\SupplierController;
@@ -28,7 +29,8 @@ Route::post('/auth/login', [AuthController::class, 'loginUser']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/me', [AuthController::class, 'me']);
     Route::get('/logout', [AuthController::class, 'logout']);
-
+    //dashboard
+    Route::get('dashboard/counter', [DashboardController::class, 'index'])->name('dashboard.counter');
     // categories
     Route::get('categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');

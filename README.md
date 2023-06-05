@@ -38,6 +38,38 @@
 	15. Purchase Get by ID : GET (http://127.0.0.1:8000/api/purchases/{id}/edit)
 	16. Update Purchase : PUT (http://127.0.0.1:8000/api/purchases/{id})
 	17. Delete Purchase : DELETE (http://127.0.0.1:8000/api/purchases/{id})
+    
+ ## ARCHETECTURE DIAGRAM
+ 
+               +------------------------+
+               |      Web Browser       |
+               +------------------------+
+                           | HTTP Requests
+                           |
+                           v
+              +------------------------+
+              |    React Web App        |
+              +------------------------+
+                           |
+                           | API Requests
+                           v
+              +------------------------+
+              |       API Gateway       |
+              +------------------------+
+                           |
+                           | Routes Requests
+                           v
+              +------------------------+
+              |    Laravel API Server   |
+              +------------------------+
+                           |
+                           | Communicates with:
+                           v
+              +------------------------+
+              |       Database         |
+              |       (MySQL)          |
+              |                        |
+              +------------------------+
 
 	
 	
